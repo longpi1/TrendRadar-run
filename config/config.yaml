@@ -84,8 +84,6 @@ platforms:
       name: "Solidot"
     - id: "v2ex"
       name: "V2EX"
-    - id: "nowcoder"
-      name: "牛客"
 
 
 
@@ -260,10 +258,10 @@ display:
   #   1. 在此列表中
   #   2. 下方 regions 中对应开关为 true
   region_order:
+    - standalone                          # 4️⃣ 独立展示区
     - new_items                           # 1️⃣ 新增热点区域
     - hotlist                             # 2️⃣ 热榜区域（关键词匹配 / AI 智能筛选）
     - rss                                 # 3️⃣ RSS 订阅区域
-    - standalone                          # 4️⃣ 独立展示区
     - ai_analysis                         # 5️⃣ AI 分析区域
 
   # 推送区域开关
@@ -287,9 +285,9 @@ display:
   #   - AI 分析：由 ai_analysis.include_standalone 开关控制，将完整数据送入 AI 做深度分析
   # 两者共享此处的平台/RSS 配置，但开关互相独立（可只开 AI 分析、不推送展示）
   standalone:
-    platforms: ["zhihu", "github", "juejin", "hackernews", "solidot", "v2ex", "nowcoder"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    platforms: ["github","zhihu",  "juejin", "hackernews", "v2ex"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
     rss_feeds: []                     # RSS 源 ID 列表（如 ["hacker-news"]）
-    max_items: 20                     # 每个源最多展示条数（0=不限制）
+    max_items: 10                     # 每个源最多展示条数（0=不限制）
 
 
 # ===============================================================
