@@ -58,12 +58,10 @@ platforms:
       # === 科技类平台 ===
     - id: "github"
       name: "GitHub"
-    - id: "ithome"
-      name: "IT之家"
     - id: "juejin"
       name: "掘金"
     - id: "hackernews"
-      name: "Hacker News"
+      name: "Hacker News(硅谷知名新闻网站)"
     - id: "solidot"
       name: "Solidot"
     - id: "v2ex"
@@ -72,12 +70,8 @@ platforms:
       name: "今日头条"
     - id: "wallstreetcn-hot"
       name: "华尔街见闻"
-    - id: "ifeng"
-      name: "凤凰网"
-    - id: "weibo"
-      name: "微博"
-    - id: "zhihu"
-      name: "知乎"
+    - id: "producthunt"
+      name: "producthunt(科技圈的大众点评)"
 
 
 
@@ -106,7 +100,7 @@ rss:
   freshness_filter:
     enabled: true                     # 是否启用新鲜度过滤（默认启用）
 
-    max_age_days: 2                   # 最大文章年龄（天）
+    max_age_days: 1                   # 最大文章年龄（天）
                                       # - 正整数：只推送 N 天内的文章
                                       # - 0：禁用过滤，推送所有文章
 
@@ -118,16 +112,18 @@ rss:
     - id: "hacker-news"
       name: "Hacker News"
       url: "https://hnrss.org/frontpage"
+      enabled: true                  # 禁用
 
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
-      enabled: false                  # 禁用
-      # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
+      enabled: true                  # 禁用
+      max_age_days: 10               # 示例：推送 3 天内的文章（更新较慢的博客）
      
     - id: "yahoo-finance"
       name: "雅虎财经"
       url: "https://finance.yahoo.com/news/rssindex"
+      enabled: false                  # 禁用
 
     # 自定义源示例
     # - id: "custom-feed"
@@ -280,7 +276,7 @@ display:
   #   - AI 分析：由 ai_analysis.include_standalone 开关控制，将完整数据送入 AI 做深度分析
   # 两者共享此处的平台/RSS 配置，但开关互相独立（可只开 AI 分析、不推送展示）
   standalone:
-    platforms: ["github","hackernews","v2ex"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    platforms: ["github"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
     rss_feeds: []                     # RSS 源 ID 列表（如 ["hacker-news"]）
     max_items: 10                     # 每个源最多展示条数（0=不限制）
 
@@ -546,7 +542,7 @@ ai_translation:
   # standalone: 独立展示区（热榜平台 + RSS 源）
   # 如果 display.regions 关闭了显示，那么这边即使开启了也不会翻译
   scope:
-    hotlist: false                  # 热榜区域
+    hotlist: true                  # 热榜区域
     rss: true                      # RSS 区域
     standalone: true               # 独立展示区
 
