@@ -61,7 +61,7 @@ platforms:
     - id: "juejin"
       name: "掘金"
     - id: "hackernews"
-      name: "Hacker News(硅谷知名新闻网站)"
+      name: "Hacker News"
     - id: "solidot"
       name: "Solidot"
     - id: "v2ex"
@@ -72,8 +72,6 @@ platforms:
       name: "华尔街见闻"
     - id: "producthunt"
       name: "producthunt(科技圈的大众点评)"
-
-
 
 
 # ===============================================================
@@ -100,7 +98,7 @@ rss:
   freshness_filter:
     enabled: true                     # 是否启用新鲜度过滤（默认启用）
 
-    max_age_days: 1                   # 最大文章年龄（天）
+    max_age_days: 2                   # 最大文章年龄（天）
                                       # - 正整数：只推送 N 天内的文章
                                       # - 0：禁用过滤，推送所有文章
 
@@ -112,18 +110,18 @@ rss:
     - id: "hacker-news"
       name: "Hacker News"
       url: "https://hnrss.org/frontpage"
-      enabled: true                  # 禁用
+
 
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
-      enabled: true                  # 禁用
-      max_age_days: 10               # 示例：推送 3 天内的文章（更新较慢的博客）
-     
+      enabled: false                  # 禁用
+      # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
+
     - id: "yahoo-finance"
       name: "雅虎财经"
       url: "https://finance.yahoo.com/news/rssindex"
-      enabled: false                  # 禁用
+
 
     # 自定义源示例
     # - id: "custom-feed"
@@ -276,7 +274,7 @@ display:
   #   - AI 分析：由 ai_analysis.include_standalone 开关控制，将完整数据送入 AI 做深度分析
   # 两者共享此处的平台/RSS 配置，但开关互相独立（可只开 AI 分析、不推送展示）
   standalone:
-    platforms: ["github"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    platforms: ["github","hackernews","v2ex"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
     rss_feeds: []                     # RSS 源 ID 列表（如 ["hacker-news"]）
     max_items: 10                     # 每个源最多展示条数（0=不限制）
 
@@ -412,11 +410,11 @@ ai:
   #   - ollama/llama3 (本地 Ollama)
   # 完整列表: https://docs.litellm.ai/docs/providers
   # 如果你对于看英文文档比较头疼，那么可以点击页面右下角的 【Ask AI】 ,用中文询问怎么配置 
-  
+
   model: "gemini/gemini-2.5-flash"
 
   api_key: ""                       # API Key（建议使用环境变量 AI_API_KEY）
-  
+
   api_base: ""                      # 自定义 API 端点（可选，大多数情况留空）
                                     # 示例: https://api.openai.com/v1（自建代理或兼容接口）
                                     #
@@ -435,7 +433,7 @@ ai:
 
   temperature: 1.0                  # 采样温度 (0.0-2.0)
                                     # 注意：部分模型(如 gpt-5)可能要求必须为 1.0，否则会报错
-  
+
   max_tokens: 5000                  # 最大生成 token 数
                                     # 注意：如果 API 不支持此参数(报 HTTP 400)，请设为 0 以禁用发送
   # 高级选项
@@ -506,7 +504,7 @@ ai_analysis:
                                       # Docker 部署默认推送 48 次(每半小时推送一次)， 约 0.2 元/天
 
   include_rss: false                # 是否包含 RSS 内容进行分析
-  
+
   include_standalone: true          # 是否将独立展示区数据纳入 AI 分析
                                     # 数据源列表来自 display.standalone.platforms / display.standalone.rss_feeds
 
@@ -542,7 +540,7 @@ ai_translation:
   # standalone: 独立展示区（热榜平台 + RSS 源）
   # 如果 display.regions 关闭了显示，那么这边即使开启了也不会翻译
   scope:
-    hotlist: true                  # 热榜区域
+    hotlist: false                  # 热榜区域
     rss: true                      # RSS 区域
     standalone: true               # 独立展示区
 
