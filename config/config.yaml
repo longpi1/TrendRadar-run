@@ -64,8 +64,6 @@ platforms:
       name: "Hacker News"
     - id: "v2ex"
       name: "V2EX"
-    - id: "producthunt"
-      name: "producthunt(科技圈的大众点评)，详细项目介绍见结尾"
 
 
 # ===============================================================
