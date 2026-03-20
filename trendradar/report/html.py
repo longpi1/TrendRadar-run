@@ -1148,7 +1148,7 @@ def render_html_content(
         standalone_html = f"""
                 <div class="standalone-section">
                     <div class="standalone-section-header">
-                        <div class="standalone-section-title">独立展示区</div>
+                        <div class="standalone-section-title">独立展示区(详细介绍见结尾)</div>
                         <div class="standalone-section-count">{total_count} 条</div>
                     </div>"""
 

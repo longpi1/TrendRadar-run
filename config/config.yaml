@@ -57,7 +57,7 @@ platforms:
   sources:
       # === 科技类平台 ===
     - id: "github"
-      name: "GitHub"
+      name: "GitHub，详细项目介绍见结尾"
     - id: "juejin"
       name: "掘金"
     - id: "hackernews"
@@ -65,7 +65,7 @@ platforms:
     - id: "v2ex"
       name: "V2EX"
     - id: "producthunt"
-      name: "producthunt(科技圈的大众点评)"
+      name: "producthunt(科技圈的大众点评)，详细项目介绍见结尾"
 
 
 # ===============================================================

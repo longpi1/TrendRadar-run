@@ -24,6 +24,7 @@ def render_feishu_content(
     get_time_func: Optional[Callable[[], datetime]] = None,
     rss_items: Optional[list] = None,
     show_new_section: bool = True,
+    announcement: Optional[str] = None,
 ) -> str:
     """渲染飞书通知内容（支持热榜+RSS合并）
 
@@ -49,7 +50,8 @@ def render_feishu_content(
     new_titles_content = ""
     if show_new_section and report_data["new_titles"]:
         new_titles_content += (
-            f"🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+            f"🆕 **本次新增热点新闻 v2.0** (共 {report_data['total_new_count']} 条)\n"
+            "本次变更：结构更精简，优先突出独立热点区信息；结尾新增「GitHub 每日热门项目」介绍，按项目逐项概述功能与亮点，方便开发者快速筛选值得跟进的开源项目。\n\n"
         )
 
         for source_data in report_data["new_titles"]:
@@ -114,6 +116,9 @@ def render_feishu_content(
     if update_info:
         text_content += f"\n<font color='grey'>TrendRadar 发现新版本 {update_info['remote_version']}，当前 {update_info['current_version']}</font>"
 
+    if announcement:
+        text_content += f"\n<font color='grey'>{announcement}</font>"
+
     return text_content
 
 
@@ -160,7 +165,8 @@ def render_dingtalk_content(
     new_titles_content = ""
     if show_new_section and report_data["new_titles"]:
         new_titles_content += (
-            f"🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+            f"🆕 **本次新增热点新闻 v2.0** (共 {report_data['total_new_count']} 条)\n"
+            "本次变更：结构更精简，优先突出独立热点区信息；结尾新增「GitHub 每日热门项目」介绍，按项目逐项概述功能与亮点，方便开发者快速筛选值得跟进的开源项目。\n\n"
         )
 
         for source_data in report_data["new_titles"]:
